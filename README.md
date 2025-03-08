@@ -1,5 +1,6 @@
-# stremio-addons-compose-template
-A template compose.yaml to self host various Stremio addons and utilities
+# Docker Compose VPS Template
+
+A template compose.yaml to self host various applications on a server/VPS using Docker Compose with Traefik as a reverse proxy.
 
 You can use the Always Free resources of Oracle to set this up. Here is a [set up guide](https://guides.viren070.me/oracle) I made for that. 
 
@@ -10,15 +11,16 @@ It will go through setting up an Oracle VPS for free, installing Docker, and the
 If you know what you're doing, then this is the general guide:
 
 1. Ensure docker is installed per https://get.docker.com
-2. Download and run the installation script
+2. Clone this repository and cd into it:
    ```
-   curl https://raw.githubusercontent.com/Viren070/stremio-addons-docker-compose-template/refs/heads/main/install.sh | bash
+   git clone https://github.com/Viren070/docker-compose-vps-template.git docker-apps
+   cd docker-apps
    ```
 3. Open the .env file using:
    ```
    nano .env
    ```
-4. Fill in all the values, making sure to read all the comments.
+4. Fill in all the values, making sure to read all the comments, and filling in any other files that are mentioned. 
 5. Run this command:
    ```
    docker compose up -d
