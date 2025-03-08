@@ -38,6 +38,24 @@
 			"icon": "https://raw.githubusercontent.com/louislam/uptime-kuma/refs/heads/master/public/favicon.ico"
 		},
 		{
+			"name": "Jellyfin",
+			"desc": "Media server",
+			"href": "https://jellyfin.yourdomain.com",
+			"icon": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/refs/heads/master/branding/tizen/icon.png"
+		},
+		{
+			"name": "JellySeer",
+			"desc": "Jellyfin Media manager",
+			"href": "https://jellyseer.yourdomain.com",
+			"icon": "https://raw.githubusercontent.com/fallenbagel/jellyseerr/refs/heads/develop/public/android-chrome-512x512.png"
+		},
+		{
+			"name": "Plex",
+			"desc": "Media server",
+			"href": "https://plex.yourdomain.com",
+			"icon": "https://global.synologydownload.com/download/Package/img/PlexMediaServer/1.40.4.8840-72008840/thumb_256.png"
+		},
+		{
 			"name": "Seanime",
 			"desc": "Anime streaming service.",
 			"href": "https://seanime.yourdomain.com",
@@ -156,6 +174,12 @@
 			"desc": "Privacy-friendly analytics.",
 			"href": "https://plausible.yourdomain.com",
 			"icon": "https://raw.githubusercontent.com/plausible/docs/master/static/img/plausible-analytics-icon-top.png"
+		},
+		{
+			"name": "Vaultwarden",
+			"desc": "Password Manager",
+			"href": "https://vaultwarden.yourdomain.com",
+			"icon": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/6edceb5f7acfee8ffe1ae2f07afd76dc588dda60/resources/vaultwarden-icon.svg"
 		}
 
 	]
