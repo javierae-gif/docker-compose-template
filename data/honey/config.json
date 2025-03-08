@@ -89,7 +89,7 @@
 			"name": "TMDB Addon",
 			"desc": "Stremio add-on for TMDB.",
 			"href": "https://tmdb-addon.yourdomain.com",
-			"icon": "https://raw.githubusercontent.com/mrcanelas/tmdb-addon/main/addon/images/logo.png"
+			"icon": "https://raw.githubusercontent.com/mrcanelas/tmdb-addon/refs/heads/main/public/logo.png"
 		},
 		{
 			"name": "Stremio Catalog Providers",
