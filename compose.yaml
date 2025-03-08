@@ -1259,6 +1259,11 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
+      - SONARR_HOST=${SONARR_HOST}
+      - SONARR_API_KEY=${SONARR_API_KEY}
+      - RADARR_HOST=${RADARR_HOST}
+      - RADARR_API_KEY=${RADARR_API_KEY}
+      - BLACKHOLE_BASE_WATCH_PATH=${BLACKHOLE_BASE_WATCH_PATH}
     restart: unless-stopped
     depends_on:
       rclone:
@@ -1278,11 +1283,23 @@ services:
     restart: unless-stopped
     env_file:
       - ./data/blackhole/.env
+    environment:
+      - SONARR_HOST=${SONARR_HOST}
+      - SONARR_API_KEY=${SONARR_API_KEY}
+      - RADARR_HOST=${RADARR_HOST}
+      - RADARR_API_KEY=${RADARR_API_KEY}
     volumes: 
       - ${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}:${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}:${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${SONARR_ROOT_FOLDER}:${SONARR_ROOT_FOLDER}
       - ${RADARR_ROOT_FOLDER}:${RADARR_ROOT_FOLDER}
+    depends_on:
+      rclone:
+        condition: service_started
+      sonarr:
+        condition: service_healthy
+      radarr: 
+        condition: service_healthy
     profiles:
       - debrid_media_server
       - all
@@ -1305,6 +1322,12 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
+      - SONARR_HOST=${SONARR_HOST_4K}
+      - SONARR_API_KEY=${SONARR_API_KEY_4K}
+      - RADARR_HOST=${RADARR_HOST_4K}
+      - RADARR_API_KEY=${RADARR_API_KEY_4K}
+      - SONARR_ROOT_FOLDER=${SONARR_ROOT_FOLDER_4K}
+      - RADARR_ROOT_FOLDER=${RADARR_ROOT_FOLDER_4K}
     restart: unless-stopped
     depends_on:
       rclone:
@@ -1324,11 +1347,23 @@ services:
     restart: unless-stopped
     env_file:
       - ./data/blackhole/.env
+    environment:
+      - SONARR_HOST=${SONARR_HOST_4K}
+      - SONARR_API_KEY=${SONARR_API_KEY_4K}
+      - RADARR_HOST=${RADARR_HOST_4K}
+      - RADARR_API_KEY=${RADARR_API_KEY_4K}
     volumes: 
       - ${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}:${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}:${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${SONARR_ROOT_FOLDER_4K}:${SONARR_ROOT_FOLDER_4K}
       - ${RADARR_ROOT_FOLDER_4K}:${RADARR_ROOT_FOLDER_4K}
+    depends_on:
+      rclone:
+        condition: service_started
+      sonarr4k:
+        condition: service_healthy
+      radarr4k: 
+        condition: service_healthy
     profiles:
       - debrid_media_server
       - all
@@ -1351,6 +1386,13 @@ services:
       - PUID=1000
       - PGID=1000
       - UMASK=002
+      - SONARR_HOST=${SONARR_HOST_ANIME}
+      - SONARR_API_KEY=${SONARR_API_KEY_ANIME}
+      - RADARR_HOST=${RADARR_HOST_ANIME}
+      - RADARR_API_KEY=${RADARR_API_KEY_ANIME}
+      - SONARR_ROOT_FOLDER=${SONARR_ROOT_FOLDER_ANIME}
+      - RADARR_ROOT_FOLDER=${RADARR_ROOT_FOLDER_ANIME}
+
     restart: unless-stopped
     depends_on:
       rclone:
@@ -1370,11 +1412,23 @@ services:
     restart: unless-stopped
     env_file:
       - ./data/blackhole/.env
+    environment:
+      - SONARR_HOST=${SONARR_HOST_ANIME}
+      - SONARR_API_KEY=${SONARR_API_KEY_ANIME}
+      - RADARR_HOST=${RADARR_HOST_ANIME}
+      - RADARR_API_KEY=${RADARR_API_KEY_ANIME}
     volumes: 
       - ${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}:${REALDEBRID_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}:${TORBOX_MOUNT_TORRENTS_PATH:-/dev/null}
       - ${SONARR_ROOT_FOLDER_ANIME}:${SONARR_ROOT_FOLDER_ANIME}
       - ${RADARR_ROOT_FOLDER_ANIME}:${RADARR_ROOT_FOLDER_ANIME}
+    depends_on:
+      rclone:
+        condition: service_started
+      sonarranime:
+        condition: service_healthy
+      radarranime: 
+        condition: service_healthy
     profiles:
       - debrid_media_server
       - all
