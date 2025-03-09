@@ -1218,6 +1218,8 @@ services:
       - 80
     environment:
       DOMAIN: "https://${VAULTWARDEN_HOSTNAME?}"
+      SIGNUPS_ALLOWED: ${VAULTWARDEN_SIGNUPS_ALLOWED:-true}
+      ADMIN_TOKEN: ${VAULTWARDEN_ADMIN_TOKEN?}
     volumes:
       - ./data/vaultwarden:/data/
     labels:
