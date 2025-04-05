@@ -57,5 +57,5 @@ services:
       - "flame.name=TBM"
       - "flame.url=https://${TBM_HOSTNAME}"
     profiles:
-      - torbox_manager
+      - torbox-manager
       - all
