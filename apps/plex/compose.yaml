@@ -41,5 +41,6 @@ services:
     depends_on:
       - rclone
     profiles:
+      - all
       - plex
       - debrid_media_server
