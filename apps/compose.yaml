@@ -29,6 +29,7 @@ include:
   - plausible/compose.yaml
   - plex/compose.yaml
   - prowlarr/compose.yaml
+  - realdebrid-account-monitor/compose.yaml
   - recyclarr/compose.yaml
   - seanime/compose.yaml
   - searxng/compose.yaml
