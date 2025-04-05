@@ -30,5 +30,6 @@ services:
       radarranime:
         condition: service_healthy
     profiles:
+      - all
       - autosync
       - debrid_media_server
