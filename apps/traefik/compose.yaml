@@ -3,6 +3,8 @@ services:
     image: traefik:v3
     container_name: traefik
     restart: unless-stopped
+    environment:
+      - TZ=${TZ:-UTC}
     ports:
       - 443:443
       - 80:80
