@@ -10,6 +10,13 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - UMASK=022
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.autosync.rule=Host(`${AUTOSYNC_HOSTNAME?}`)"
+      - "traefik.http.routers.autosync.entrypoints=websecure"
+      - "traefik.http.routers.autosync.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.autosync.middlewares=authelia@docker"
+
     volumes:
       - ${DOCKER_DATA_DIR}/autosync/config.yaml:/app/config.yaml
       - /etc/localtime:/etc/localtime:ro
