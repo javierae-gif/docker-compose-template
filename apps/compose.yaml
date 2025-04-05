@@ -1,5 +1,5 @@
-
 include:
+  - authelia/compose.yaml
   - radarr/compose.yaml
   - sonarr/compose.yaml
   - addon-manager/compose.yaml
