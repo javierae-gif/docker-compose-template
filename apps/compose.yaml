@@ -10,6 +10,7 @@ include:
   - byparr/compose.yaml
   - comet/compose.yaml
   - dash/compose.yaml
+  - dockge/compose.yaml
   - dozzle/compose.yaml
   - flame/compose.yaml
   - gluetun/compose.yaml
