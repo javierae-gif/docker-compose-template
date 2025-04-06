@@ -2,7 +2,6 @@ services:
   realdebrid-account-monitor:
     build:
       context: .
-    pull_policy: build
     image: realdebrid-account-monitor
     container_name: realdebrid-account-monitor
     env_file:
@@ -11,6 +10,7 @@ services:
       - ${DOCKER_DATA_DIR}/realdebrid-account-monitor:/app/data
     restart: unless-stopped
     profiles:
+      - all
       - realdebrid-account-monitor
 
 
