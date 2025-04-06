@@ -3,9 +3,9 @@ services:
     image: louislam/uptime-kuma:latest
     container_name: kuma
     restart: unless-stopped
-    environment:
-      PUID: ${PUID}
-      PGID: ${PGID}
+    # environment:
+      # PUID: ${PUID}
+      # PGID: ${PGID}
     expose:
       - 3001
     labels:
