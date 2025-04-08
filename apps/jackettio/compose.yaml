@@ -15,6 +15,7 @@ services:
       - "traefik.http.routers.jackettio.rule=Host(`${JACKETTIO_HOSTNAME?}`)"
       - "traefik.http.routers.jackettio.entrypoints=websecure"
       - "traefik.http.routers.jackettio.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.jackettio.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=Jackettio"
       - "flame.url=https://${JACKETTIO_HOSTNAME}"

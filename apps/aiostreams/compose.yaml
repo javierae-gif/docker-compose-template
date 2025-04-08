@@ -12,6 +12,7 @@ services:
       - "traefik.http.routers.aiostreams.rule=Host(`${AIOSTREAMS_HOSTNAME?}`)"
       - "traefik.http.routers.aiostreams.entrypoints=websecure"
       - "traefik.http.routers.aiostreams.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aiostreams.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=AIOStreams"
       - "flame.url=https://${AIOSTREAMS_HOSTNAME}"

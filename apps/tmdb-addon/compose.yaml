@@ -19,6 +19,7 @@ services:
       - "traefik.http.routers.tmdb.rule=Host(`${TMDB_ADDON_HOSTNAME?}`)"
       - "traefik.http.routers.tmdb.entrypoints=websecure"
       - "traefik.http.routers.tmdb.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.tmdb.middlewares=authelia@docker"
       - "traefik.http.services.tmdb.loadbalancer.server.port=3232"
       - "flame.type=app"
       - "flame.name=TMDB Addon"

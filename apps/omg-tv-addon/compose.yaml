@@ -16,6 +16,7 @@ services:
       - "traefik.http.routers.omg-tv-stremio-addon.rule=Host(`${OMG_TV_STREMIO_ADDON_HOSTNAME?}`)"
       - "traefik.http.routers.omg-tv-stremio-addon.entrypoints=websecure"
       - "traefik.http.routers.omg-tv-stremio-addon.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.omg-tv-stremio-addon.middlewares=authelia@docker"
       - "traefik.http.services.omg-tv-stremio-addon.loadbalancer.server.port=7860"
       - "flame.type=app"
       - "flame.name=OMG TV Stremio Addon"

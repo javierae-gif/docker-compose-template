@@ -14,6 +14,7 @@ services:
       - "traefik.http.routers.stremiojackett.rule=Host(`${STREMIO_JACKETT_HOSTNAME?}`)"
       - "traefik.http.routers.stremiojackett.entrypoints=websecure"
       - "traefik.http.routers.stremiojackett.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.stremiojackett.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=Stremio-Jackett"
       - "flame.url=https://${STREMIO_JACKETT_HOSTNAME}"

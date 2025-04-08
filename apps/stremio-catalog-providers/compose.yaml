@@ -38,6 +38,7 @@ services:
       - "traefik.http.routers.ravenn-catalogs.rule=Host(`${STREMIO_CATALOG_PROVIDERS_HOSTNAME?}`)"
       - "traefik.http.routers.ravenn-catalogs.entrypoints=websecure"
       - "traefik.http.routers.ravenn-catalogs.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.ravenn-catalogs.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=Stremio Catalogs"
       - "flame.url=https://${STREMIO_CATALOG_PROVIDERS_HOSTNAME}"

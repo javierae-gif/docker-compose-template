@@ -8,16 +8,17 @@ services:
     env_file:
       - .env
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.comet.rule=Host(`${COMET_HOSTNAME}`)"
-      - "traefik.http.routers.comet.entrypoints=websecure"
-      - "traefik.http.routers.comet.tls.certresolver=letsencrypt"
-      - "flame.type=app"
-      - "flame.name=Comet"
-      - "flame.url=https://${COMET_HOSTNAME}"
+      - traefik.enable=true
+      - traefik.http.routers.comet.rule=Host(`${COMET_HOSTNAME}`)
+      - traefik.http.routers.comet.entrypoints=websecure
+      - traefik.http.routers.comet.tls.certresolver=letsencrypt
+      - traefik.http.routers.comet.middlewares=authelia@docker
+      - flame.type=app
+      - flame.name=Comet
+      - flame.url=https://${COMET_HOSTNAME}
     volumes:
       - ${DOCKER_DATA_DIR}/comet:/app/data
-    healthcheck: 
+    healthcheck:
       test: wget -qO- http://127.0.0.1:2020/health
       interval: 1m
       timeout: 10s

@@ -720,7 +720,20 @@ access_control:
   default_policy: 'deny'
 
   rules:
-    ## subdomains
+    ## Rules for stremio addon subdomains
+    ## Protect certain pages (e.g /configure) only
+    ## but leave api routes unprotected so apps can use them.
+
+    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_SUBDOMAINS" }}).{{ env "TEMPLATE_DOMAIN" }}$'
+      resources:
+        - '.*?/configure($|/.*$|\?.*$)'  # rule for prtecting any resource that has the component somewhere in the path
+        - '.*?/(stremio|sidekick|admin|watch)($|\?.*$)' # rule for protecting any resource that ends with the component.
+        - '^/$' # rule for protecting the root path
+      policy: 'two_factor'
+
+    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_SUBDOMAINS" }}).{{ env "TEMPLATE_DOMAIN" }}$'
+      policy: 'bypass'
+
     - domain: '*.{{ env "TEMPLATE_DOMAIN" }}'
       policy: 'two_factor'
 

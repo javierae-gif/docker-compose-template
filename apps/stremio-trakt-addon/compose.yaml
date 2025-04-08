@@ -41,6 +41,7 @@ services:
       - "traefik.http.routers.ravenn-trakt.rule=Host(`${STREMIO_TRAKT_ADDON_HOSTNAME?}`)"
       - "traefik.http.routers.ravenn-trakt.entrypoints=websecure"
       - "traefik.http.routers.ravenn-trakt.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.ravenn-trakt.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=Stremio Trakt"
       - "flame.url=https://${STREMIO_TRAKT_ADDON_HOSTNAME}"
