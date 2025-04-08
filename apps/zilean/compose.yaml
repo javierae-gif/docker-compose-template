@@ -4,22 +4,35 @@ services:
     restart: unless-stopped
     container_name: zilean
     tty: true
+    expose:
+      - 8181
     environment:
+      Zilean__EnableDashboard: true
       Zilean__Database__ConnectionString: Host=zilean_postgres;Database=zilean;Username=zilean;Password=postgres;Include Error Detail=true;Timeout=30;CommandTimeout=3600
       Zilean__Imdb__UseAllCores: true
       Zilean__Imdb__UseLucene: true
       Zilean__Parsing__BatchSize: 100000
       Zilean__Dmm_ScrapeSchedule: 32 * * * *
-    healthcheck:
-      test: curl --connect-timeout 10 --silent --show-error --fail http://localhost:8181/healthchecks/ping
-      timeout: 60s
-      interval: 30s
-      retries: 10
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.zilean.rule=Host(`${ZILEAN_HOSTNAME?}`)"
+      - "traefik.http.routers.zilean.entrypoints=websecure"
+      - "traefik.http.routers.zilean.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.zilean.middlewares=authelia@docker"
+      - "traefik.http.services.zilean.loadbalancer.server.port=8181"
+      - "flame.type=app"
+      - "flame.name=Zilean"
+      - "flame.url=https://${ZILEAN_HOSTNAME?}"
+    volumes:
+      - ${DOCKER_DATA_DIR}/zilean/tmp:/tmp
     depends_on:
       zilean_postgres:
         condition: service_healthy
-    volumes:
-      - ${DOCKER_DATA_DIR}/zilean/tmp:/tmp
+    healthcheck:
+        test: curl --connect-timeout 10 --silent --show-error --fail http://localhost:8181/healthchecks/ping
+        timeout: 60s
+        interval: 30s
+        retries: 10
     profiles:
       - zilean
       - stremio
