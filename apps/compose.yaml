@@ -22,6 +22,7 @@ include:
   - jellyfin/compose.yaml
   - jellyseer/compose.yaml
   - kometa/compose.yaml
+  - librespeed/compose.yaml
   - mediaflow-proxy/compose.yaml
   - mediafusion/compose.yaml
   - minecraft/compose.yaml
@@ -56,7 +57,7 @@ include:
   - zilean/compose.yaml
   - zipline/compose.yaml
   - zurg/compose.yaml
-  
+
 networks:
   default:
     name: ${DOCKER_NETWORK:-aio_default}
