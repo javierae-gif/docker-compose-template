@@ -6,7 +6,7 @@ services:
     expose:
       - 3536
     environment:
-      - TZ=${TZ:-UTC}
+      - TZ=${TZ:-Etc/UTC}
       - PUID=${PUID}
       - PGID=${PGID}
       - UMASK=022
@@ -16,7 +16,6 @@ services:
       - "traefik.http.routers.autosync.entrypoints=websecure"
       - "traefik.http.routers.autosync.tls.certresolver=letsencrypt"
       - "traefik.http.routers.autosync.middlewares=authelia@docker"
-
     volumes:
       - ${DOCKER_DATA_DIR}/autosync/config.yaml:/app/config.yaml
       - /etc/localtime:/etc/localtime:ro
