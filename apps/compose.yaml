@@ -13,6 +13,7 @@ include:
   - dash/compose.yaml
   - dockge/compose.yaml
   - dozzle/compose.yaml
+  - easynews-plus/compose.yaml
   - flame/compose.yaml
   - gluetun/compose.yaml
   - honey/compose.yaml
