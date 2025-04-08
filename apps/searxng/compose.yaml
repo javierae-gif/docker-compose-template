@@ -21,6 +21,7 @@ services:
       - "traefik.http.routers.searxng.rule=Host(`${SEARXNG_HOSTNAME}`)"
       - "traefik.http.routers.searxng.entrypoints=websecure"
       - "traefik.http.routers.searxng.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.searxng.middlewares=authelia@docker"
       - "flame.type=app"
       - "flame.name=SearxNG"
       - "flame.url=https://${SEARXNG_HOSTNAME}"
