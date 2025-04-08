@@ -37,6 +37,7 @@ include:
   - recyclarr/compose.yaml
   - seanime/compose.yaml
   - searxng/compose.yaml
+  - speedtest-tracker/compose.yaml
   - stremio-catalog-providers/compose.yaml
   - stremio-jackett/compose.yaml
   - stremio-server/compose.yaml
