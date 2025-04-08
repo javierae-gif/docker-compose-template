@@ -67,7 +67,7 @@ server:
     # csp_template: ''
 
   ## Server Buffers configuration.
-  # buffers:
+  buffers:
 
     ## Buffers usually should be configured to be the same value.
     ## Explanation at https://www.authelia.com/c/server#buffer-sizes
@@ -75,10 +75,10 @@ server:
     ## Write buffer size does the same for outgoing responses.
 
     ## Read buffer.
-    # read: 4096
+    read: 8192
 
     ## Write buffer.
-    # write: 4096
+    write: 8192
 
   ## Server Timeouts configuration.
   # timeouts:
