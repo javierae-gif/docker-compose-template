@@ -30,6 +30,7 @@ include:
   - plausible/compose.yaml
   - plex/compose.yaml
   - plex-trakt-sync/compose.yaml
+  - portainer/compose.yaml
   - prowlarr/compose.yaml
   - realdebrid-account-monitor/compose.yaml
   - recyclarr/compose.yaml
