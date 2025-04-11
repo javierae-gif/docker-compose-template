@@ -5,8 +5,6 @@ services:
     restart: unless-stopped
     healthcheck:
       test: curl -f localhost:9999/dav/version.txt || exit 1
-    ports:
-      - 9999:9999
     volumes:
       - ${DOCKER_DATA_DIR}/zurg/config-${ZURG_CONFIG_VERSION:-v0.9}.yml:/app/config.yml
       - ${DOCKER_DATA_DIR}/zurg/data:/app/data
@@ -28,8 +26,8 @@ services:
     restart: unless-stopped
     environment:
       TZ: ${TZ:-UTC}
-      PUID: 1000
-      PGID: 1000
+      PUID: ${PUID}
+      PGID: ${PGID}
     volumes:
       - /mnt/remote/realdebrid:/data:rshared
       - ${DOCKER_DATA_DIR}/zurg/rclone.conf:/config/rclone/rclone.conf
@@ -48,8 +46,8 @@ services:
       mount zurg: /data
       --allow-non-empty
       --allow-other
-      --uid=1000
-      --gid=1000
+      --uid=${PUID}
+      --gid=${PGID}
       --umask=002
       --attr-timeout 10y
       --buffer-size 64M
