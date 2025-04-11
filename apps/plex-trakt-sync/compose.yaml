@@ -39,6 +39,9 @@ services:
       ofelia.job-run.plextraktsync-1.container: "plextraktsync_1_sync"
       # ofelia.job-run.plextraktsync-2.schedule: "@every 6h"
       # ofelia.job-run.plextraktsync-2.container: "plextraktsync_2_sync"
+    profiles:
+      - plextraktsync
+      - all
 
   plextraktsync_1_sync:
     <<: *plextraktsync_sync
