@@ -21,9 +21,6 @@ services:
       - "traefik.http.routers.zipline.rule=Host(`${ZIPLINE_HOSTNAME?}`)"
       - "traefik.http.routers.zipline.entrypoints=websecure"
       - "traefik.http.routers.zipline.tls.certresolver=letsencrypt"
-      - "flame.type=app"
-      - "flame.name=Zipline"
-      - "flame.url=https://${ZIPLINE_HOSTNAME}"
     profiles:
       - zipline
       - all

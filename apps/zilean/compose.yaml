@@ -20,9 +20,6 @@ services:
       - "traefik.http.routers.zilean.tls.certresolver=letsencrypt"
       - "traefik.http.routers.zilean.middlewares=authelia@docker"
       - "traefik.http.services.zilean.loadbalancer.server.port=8181"
-      - "flame.type=app"
-      - "flame.name=Zilean"
-      - "flame.url=https://${ZILEAN_HOSTNAME?}"
     volumes:
       - ${DOCKER_DATA_DIR}/zilean/tmp:/tmp
     depends_on:

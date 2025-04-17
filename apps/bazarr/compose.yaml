@@ -20,9 +20,6 @@ services:
       - "traefik.http.routers.bazarr.tls.certresolver=letsencrypt"
       - "traefik.http.routers.bazarr.middlewares=authelia@docker"
       - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
-      - "flame.type=app"
-      - "flame.name=Bazarr"
-      - "flame.url=https://${BAZARR_HOSTNAME}"
     profiles:
       - all
       - bazarr
@@ -54,9 +51,6 @@ services:
       - "traefik.http.routers.bazarr4k.tls.certresolver=letsencrypt"
       - "traefik.http.routers.bazarr4k.middlewares=authelia@docker"
       - "traefik.http.services.bazarr4k.loadbalancer.server.port=6767"
-      - "flame.type=app"
-      - "flame.name=Bazarr"
-      - "flame.url=https://${BAZARR4K_HOSTNAME}"
     profiles:
       - all
       - bazarr

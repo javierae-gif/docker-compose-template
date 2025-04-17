@@ -19,13 +19,10 @@ services:
       CLICKHOUSE_DATABASE_URL: "http://plausible_clickhouse:8123/plausible_events_db"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.plausible.rule=Host(`${PLAUSIBLE_HOSTNAME}`)"
+      - "traefik.http.routers.plausible.rule=Host(`${PLAUSIBLE_HOSTNAME?}`)"
       - "traefik.http.routers.plausible.entrypoints=websecure"
       - "traefik.http.routers.plausible.tls.certresolver=letsencrypt"
       - "traefik.http.services.plausible.loadbalancer.server.port=8000"
-      - "flame.type=app"
-      - "flame.name=Plausible"
-      - "flame.url=https://${PLAUSIBLE_HOSTNAME}"
     volumes:
       - ${DOCKER_DATA_DIR}/plausible/data:/var/lib/plausible
     depends_on:

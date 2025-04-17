@@ -24,9 +24,6 @@ services:
       - "traefik.http.routers.mediafusion.entrypoints=websecure"
       - "traefik.http.routers.mediafusion.tls.certresolver=letsencrypt"
       - "traefik.http.routers.mediafusion.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=MediaFusion"
-      - "flame.url=https://${MEDIAFUSION_HOSTNAME?}"
     profiles:
       - mediafusion
       - stremio

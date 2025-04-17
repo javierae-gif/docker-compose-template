@@ -11,9 +11,6 @@ services:
       - "traefik.http.routers.addon-manager.entrypoints=websecure"
       - "traefik.http.routers.addon-manager.tls.certresolver=letsencrypt"
       - "traefik.http.routers.addon-manager.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Stremio Addon Manager"
-      - "flame.url=https://${ADDON_MANAGER_HOSTNAME?}"
     profiles:
       - addon-manager
       - stremio

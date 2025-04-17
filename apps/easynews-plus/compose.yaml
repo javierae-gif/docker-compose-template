@@ -11,9 +11,6 @@ services:
       - "traefik.http.routers.easynews-plus.entrypoints=websecure"
       - "traefik.http.routers.easynews-plus.tls.certresolver=letsencrypt"
       - "traefik.http.routers.easynews-plus.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Easynews Plus"
-      - "flame.url=https://${EASYNEWS_PLUS_HOSTNAME}"
     profiles:
       - easynews-plus
       - stremio

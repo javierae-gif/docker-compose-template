@@ -17,6 +17,3 @@ services:
       - "traefik.http.routers.dash.entrypoints=websecure"
       - "traefik.http.routers.dash.tls.certresolver=letsencrypt"
       - "traefik.http.routers.dash.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Dash"
-      - "flame.url=https://${DASHDOT_HOSTNAME?}"

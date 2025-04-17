@@ -15,9 +15,6 @@ services:
       - "traefik.http.routers.dockge.entrypoints=websecure"
       - "traefik.http.routers.dockge.tls.certresolver=letsencrypt"
       - "traefik.http.routers.dockge.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=DockGE"
-      - "flame.url=https://${DOCKGE_HOSTNAME?}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${DOCKER_DATA_DIR}/dockge:/app/data

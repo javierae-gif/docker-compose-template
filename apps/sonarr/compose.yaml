@@ -15,9 +15,6 @@ services:
       - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
       - "traefik.http.routers.sonarr.middlewares=authelia@docker"
       - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
-      - "flame.type=app"
-      - "flame.name=Sonarr"
-      - "flame.url=https://${SONARR_HOSTNAME}"
     volumes:
       - /mnt:/mnt
       - ${DOCKER_DATA_DIR}/sonarr/default:/config
@@ -50,9 +47,6 @@ services:
       - "traefik.http.routers.sonarr4k.tls.certresolver=letsencrypt"
       - "traefik.http.routers.sonarr4k.middlewares=authelia@docker"
       - "traefik.http.services.sonarr4k.loadbalancer.server.port=8989"
-      - "flame.type=app"
-      - "flame.name=Sonarr4k"
-      - "flame.url=https://${SONARR4K_HOSTNAME}"
     volumes:
       - /mnt:/mnt
       - ${DOCKER_DATA_DIR}/sonarr/4k:/config
@@ -82,14 +76,11 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sonarranime.rule=Host(`${SONARRANIME_HOSTNAME}`)"
+      - "traefik.http.routers.sonarranime.rule=Host(`${SONARRANIME_SUBDOMAIN?}.${DOMAIN?}`)"
       - "traefik.http.routers.sonarranime.entrypoints=websecure"
       - "traefik.http.routers.sonarranime.tls.certresolver=letsencrypt"
       - "traefik.http.routers.sonarranime.middlewares=authelia@docker"
       - "traefik.http.services.sonarranime.loadbalancer.server.port=8989"
-      - "flame.type=app"
-      - "flame.name=Sonarr Anime"
-      - "flame.url=https://${SONARRANIME_HOSTNAME}"
     volumes:
       - /mnt:/mnt
       - ${DOCKER_DATA_DIR}/sonarr/anime:/config

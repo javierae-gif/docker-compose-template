@@ -16,9 +16,6 @@ services:
       - "traefik.http.routers.vaultwarden.rule=Host(`${VAULTWARDEN_HOSTNAME?}`)"
       - "traefik.http.routers.vaultwarden.entrypoints=websecure"
       - "traefik.http.routers.vaultwarden.tls.certresolver=letsencrypt"
-      - "flame.type=app"
-      - "flame.name=Vaultwarden"
-      - "flame.url=https://${VAULTWARDEN_HOSTNAME?}"
     profiles:
       - vaultwarden
       - all

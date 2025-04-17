@@ -13,9 +13,6 @@ services:
       - "traefik.http.routers.aiostreams.entrypoints=websecure"
       - "traefik.http.routers.aiostreams.tls.certresolver=letsencrypt"
       - "traefik.http.routers.aiostreams.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=AIOStreams"
-      - "flame.url=https://${AIOSTREAMS_HOSTNAME}"
     healthcheck:
       test: wget -qO- http://localhost:3000/health
       interval: 1m

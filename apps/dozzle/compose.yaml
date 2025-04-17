@@ -16,10 +16,6 @@ services:
       - "traefik.http.routers.dozzle.entrypoints=websecure"
       - "traefik.http.routers.dozzle.tls.certresolver=letsencrypt"
       - "traefik.http.routers.dozzle.middlewares=authelia@docker"
-      # - "traefik.http.middlewares.dozzle-auth.basicauth.users=${DOZZLE_USERNAME?}:${DOZZLE_HASHED_PASSWORD?}"
-      - "flame.type=app"
-      - "flame.name=Dozzle"
-      - "flame.url=https://${DOZZLE_HOSTNAME?}"
     healthcheck:
       test: ["CMD", "/dozzle", "healthcheck"]
       interval: 3s

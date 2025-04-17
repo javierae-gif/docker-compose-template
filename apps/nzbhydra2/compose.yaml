@@ -18,9 +18,6 @@ services:
       - "traefik.http.routers.nzbhydra2.entrypoints=websecure"
       - "traefik.http.routers.nzbhydra2.tls.certresolver=letsencrypt"
       - "traefik.http.routers.nzbhydra2.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=NZBHydra2"
-      - "flame.url=https://${NZBHYDRA2_HOSTNAME}"
     profiles:
       - nzbhydra2
       - all
