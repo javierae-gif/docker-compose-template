@@ -76,7 +76,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sonarranime.rule=Host(`${SONARRANIME_SUBDOMAIN?}.${DOMAIN?}`)"
+      - "traefik.http.routers.sonarranime.rule=Host(`${SONARRANIME_HOSTNAME}`)"
       - "traefik.http.routers.sonarranime.entrypoints=websecure"
       - "traefik.http.routers.sonarranime.tls.certresolver=letsencrypt"
       - "traefik.http.routers.sonarranime.middlewares=authelia@docker"
