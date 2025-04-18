@@ -1,0 +1,60 @@
+services:
+  streamystats_frontend:
+    image: fredrikburmester/streamystats-nextjs:edge
+    container_name: streamystats_frontend
+    restart: unless-stopped
+    expose:
+      - 3000
+    environment:
+      API_URL: "http://streamystats_backend:4000/api"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.streamystats_frontend.rule=Host(`${STREAMYSTATS_HOSTNAME?}`)"
+      - "traefik.http.routers.streamystats_frontend.entrypoints=websecure"
+      - "traefik.http.routers.streamystats_frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.streamystats_frontend.middlewares=authelia@docker"
+      - "traefik.http.services.streamystats_frontend.loadbalancer.server.port=3000"
+    depends_on:
+      - streamystats_backend
+    profiles:
+      - streamystats
+      - all
+
+  streamystats_backend:
+    image: fredrikburmester/streamystats-phoenix:edge
+    container_name: streamystats_backend
+    restart: unless-stopped
+    expose:
+      - 4000
+    environment:
+      DATABASE_URL: "postgres://streamystats:streamystats@streamystats_postgres:5432/streamystats"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+    depends_on:
+      streamystats_postgres:
+        condition: service_healthy
+    profiles:
+      - streamystats
+      - all
+    
+  streamystats_postgres:
+    image: postgres:16
+    container_name: streamystats_postgres
+    restart: unless-stopped
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: streamystats
+      POSTGRES_PASSWORD: streamystats
+      POSTGRES_DB: streamystats
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ${DOCKER_DATA_DIR}/streamystats:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "streamystats", "-d", "streamystats"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - streamystats
+      - all
+

@@ -39,6 +39,7 @@ include:
   - seanime/compose.yaml
   - searxng/compose.yaml
   - speedtest-tracker/compose.yaml
+  - streamystats/compose.yaml
   - stremio-catalog-providers/compose.yaml
   - stremio-jackett/compose.yaml
   - stremio-server/compose.yaml
