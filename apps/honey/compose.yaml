@@ -15,3 +15,6 @@ services:
       - "traefik.http.routers.honey.entrypoints=websecure"
       - "traefik.http.routers.honey.tls.certresolver=letsencrypt"
       - "traefik.http.routers.honey.middlewares=authelia@docker"
+    profiles:
+      - honey
+      - all

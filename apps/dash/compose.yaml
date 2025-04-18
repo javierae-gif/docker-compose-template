@@ -17,3 +17,6 @@ services:
       - "traefik.http.routers.dash.entrypoints=websecure"
       - "traefik.http.routers.dash.tls.certresolver=letsencrypt"
       - "traefik.http.routers.dash.middlewares=authelia@docker"
+    profiles:
+      - dash
+      - all

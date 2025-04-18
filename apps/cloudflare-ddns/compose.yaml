@@ -1,0 +1,20 @@
+services:
+  cloudflare-ddns:
+    image: favonia/cloudflare-ddns:1
+    container_name: cloudflare-ddns
+    restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    network_mode: host
+    read_only: true
+    cap_drop: [all]
+    security_opt: [no-new-privileges:true]
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+        # Your Cloudflare API token
+      - DOMAINS=${DOMAINS}
+        # Your domains (separated by commas)
+      - PROXIED=false
+        # Tell Cloudflare to cache webpages and hide your IP (optional)
+    profiles:
+      - cloudflare-ddns
+      - all

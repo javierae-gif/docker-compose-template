@@ -60,3 +60,7 @@ services:
     depends_on:
       authelia:
         condition: service_healthy
+    profiles:
+      - traefik
+      - required
+      - all

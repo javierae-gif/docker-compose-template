@@ -17,3 +17,6 @@ services:
     volumes:
       - ${DOCKER_DATA_DIR}/uptime-kuma:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
+    profiles:
+      - uptime-kuma
+      - all

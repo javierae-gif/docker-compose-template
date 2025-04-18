@@ -9,6 +9,7 @@ include:
   - bazarr/compose.yaml
   - beszel/compose.yaml
   - byparr/compose.yaml
+  - cloudflare-ddns/compose.yaml
   - comet/compose.yaml
   - dash/compose.yaml
   - dockge/compose.yaml

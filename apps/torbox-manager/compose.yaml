@@ -49,7 +49,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tbm.rule=Host(`${TBM_HOSTNAME?}`)"
+      - "traefik.http.routers.tbm.rule=Host(`${TORBOX_MANAGER_HOSTNAME?}`)"
       - "traefik.http.routers.tbm.entrypoints=websecure"
       - "traefik.http.routers.tbm.tls.certresolver=letsencrypt"
       - "traefik.http.routers.tbm.middlewares=authelia@docker"
