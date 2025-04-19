@@ -17,3 +17,4 @@ services:
     depends_on:
       warp:
         condition: service_healthy
+        restart: true

@@ -16,9 +16,6 @@ services:
       - "traefik.http.routers.aiostremio.entrypoints=websecure"
       - "traefik.http.routers.aiostremio.tls.certresolver=letsencrypt"
       - "traefik.http.routers.aiostremio.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=AIOStremio"
-      - "flame.url=https://${AIOSTREMIO_HOSTNAME}"
     profiles:
       - aiostremio
       - stremio

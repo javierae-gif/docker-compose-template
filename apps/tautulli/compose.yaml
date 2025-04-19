@@ -16,9 +16,6 @@ services:
       - "traefik.http.routers.tautulli.rule=Host(`${TAUTULLI_HOSTNAME?}`)"
       - "traefik.http.routers.tautulli.entrypoints=websecure"
       - "traefik.http.routers.tautulli.tls.certresolver=letsencrypt"
-      - "flame.type=app"
-      - "flame.name=Tautulli"
-      - "flame.url=https://${TAUTULLI_HOSTNAME}"
     profiles:
       - all
       - tautulli

@@ -15,34 +15,34 @@ Prerequisites:
 - A VPS with Docker installed. 
 - Port 80 and 443 open.
 - A domain with DNS records pointing to the VPS IP for each domain/subdomain you want to use.
-   - Domains from [DuckDNS](https://www.duckdns.org/) or [Afraid.org](https://afraid.org/) are free and can be used for this.
-
+   - Domains from [DuckDNS](https://www.duckdns.org/) or [Afraid.org](https://afraid.org/) are free and can be used for this 
+- Moving your namservers to Cloudflare is preferred as it enables you to use Cloudflare DDNS, included in this template, to automatically create and maintain your DNS records (Note that this is not possible with DuckDNS or Afraid.org).
 
 1. Ensure docker is installed per https://get.docker.com
 2. Clone this repository and cd into it:
    ```
    cd /opt
-
    git clone https://github.com/Viren070/docker-compose-vps-template.git docker
    cd docker
    ```
-3. Open the .env file using:
+3. Use a text editor to open the `.env` file in the `apps` folder. You can use `nano`, but I recommend using either **XPipe** or **VS Code (with the `Remote - SSH` extension)** to edit the files. 
+   - If you are using nano, run this command:
+     ```
+     nano .env
+     ```
+4. After you fill in the initial values in the root .env, I'd recommend using the `required` profile only and running the following command to start Authelia and Traefik:
    ```
-   cd apps
-   nano .env
+   docker compose --profile required up -d
    ```
-4. Fill in all the values, making sure to read all the comments, and filling in any other files that are mentioned. 
-5. Fill in the .env files within the services you are using, e.g. `seanime/.env` or `stremio/.env`.
-6. Ensure you are in the root directory of the apps folder and not inside an app-specific folder. 
-   - You can check this by running `pwd` and ensuring it returns `/opt/docker/apps`.
-7. Run this command:
+5. Now, you can either start adding other `profiles` to the `COMPOSE_PROFILES` environment variable or use the `all` profile and fill in any other `.env` files if they exist for the services you want to use.
+6. Finally, ensure you are in the root directory of the apps folder and not inside an app-specific folder (You can check this by running `pwd` and ensuring it returns `/opt/docker/apps`) and run this command to start all the services (according to your profiles in the `.env`)
    ```
    docker compose up -d
    ```
-   - Ensure you defined the `COMPOSE_PROFILES` environment variable in the .env file, otherwise only the default services will be started.
+   - Ensure you defined the `COMPOSE_PROFILES` environment variable in the .env file, otherwise none of the services will start
       - You can also use the --profile flag e.g. docker compose --profile stremio --profile seanime up -d
-   - You can check the compose.yaml or the full guide above to see what profiles are available.
-   - Ensure port 443 and port 80 is open
-   - Ensure you have DNS records that handle each hostname you are making use of which will point the hostname to the public IP of your server
+      - This can be useful for other commands like `docker compose --profile seanime restart` or `docker compose --profile seanime logs` 
+   - Ensure port 443 and port 80 are open.
+   - If you have not setup Cloudflare DDNS in the .env by providing your token and using the `cloudflare-ddns` profile, you will need to manually create A records for each service you want to use using the subdomain in the .env file. 
    - Ensure you follow the instructions in the .env for any additional instructions that need to be carried out for some services (e.g. adding the prowlarr/jackett api keys or editing Seanime's config.toml)
   

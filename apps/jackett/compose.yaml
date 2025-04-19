@@ -17,9 +17,6 @@ services:
       - "traefik.http.routers.jackett.entrypoints=websecure"
       - "traefik.http.routers.jackett.tls.certresolver=letsencrypt"
       - "traefik.http.routers.jackett.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Jackett"
-      - "flame.url=https://${JACKETT_HOSTNAME}"
     healthcheck:
       test: curl -f http://localhost:9117/health 
       interval: 30s

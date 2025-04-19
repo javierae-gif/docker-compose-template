@@ -20,9 +20,6 @@ services:
       - "traefik.http.routers.zilean.tls.certresolver=letsencrypt"
       - "traefik.http.routers.zilean.middlewares=authelia@docker"
       - "traefik.http.services.zilean.loadbalancer.server.port=8181"
-      - "flame.type=app"
-      - "flame.name=Zilean"
-      - "flame.url=https://${ZILEAN_HOSTNAME?}"
     volumes:
       - ${DOCKER_DATA_DIR}/zilean/tmp:/tmp
     depends_on:
@@ -52,7 +49,7 @@ services:
     volumes:
       - ${DOCKER_DATA_DIR}/zilean/db:/var/lib/postgresql/data/pgdata
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d zilean" ]
+      test: [ "CMD-SHELL", "pg_isready -U zilean -d zilean" ]
       interval: 30s
       timeout: 5s
       retries: 5

@@ -9,12 +9,12 @@ include:
   - bazarr/compose.yaml
   - beszel/compose.yaml
   - byparr/compose.yaml
+  - cloudflare-ddns/compose.yaml
   - comet/compose.yaml
   - dash/compose.yaml
   - dockge/compose.yaml
   - dozzle/compose.yaml
   - easynews-plus/compose.yaml
-  - flame/compose.yaml
   - gluetun/compose.yaml
   - honey/compose.yaml
   - jackett/compose.yaml
@@ -39,6 +39,7 @@ include:
   - seanime/compose.yaml
   - searxng/compose.yaml
   - speedtest-tracker/compose.yaml
+  - streamystats/compose.yaml
   - stremio-catalog-providers/compose.yaml
   - stremio-jackett/compose.yaml
   - stremio-server/compose.yaml

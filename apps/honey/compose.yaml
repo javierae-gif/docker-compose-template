@@ -15,6 +15,6 @@ services:
       - "traefik.http.routers.honey.entrypoints=websecure"
       - "traefik.http.routers.honey.tls.certresolver=letsencrypt"
       - "traefik.http.routers.honey.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Honey"
-      - "flame.url=https://${HONEY_HOSTNAME?}"
+    profiles:
+      - honey
+      - all

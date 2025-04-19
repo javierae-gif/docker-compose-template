@@ -16,13 +16,12 @@ services:
       - "traefik.http.routers.autosync.entrypoints=websecure"
       - "traefik.http.routers.autosync.tls.certresolver=letsencrypt"
       - "traefik.http.routers.autosync.middlewares=authelia@docker"
+      - "traefik.http.services.autosync.loadbalancer.server.port=3536"
     volumes:
       - ${DOCKER_DATA_DIR}/autosync/config.yaml:/app/config.yaml
       - /etc/localtime:/etc/localtime:ro
       - /mnt:/mnt
     depends_on:
-      plex:
-        condition: service_healthy
       sonarr:
         condition: service_healthy
       sonarr4k:

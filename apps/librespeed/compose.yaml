@@ -15,9 +15,6 @@ services:
       - "traefik.http.routers.librespeed.entrypoints=websecure"
       - "traefik.http.routers.librespeed.tls.certresolver=letsencrypt"
       - "traefik.http.services.librespeed.loadbalancer.server.port=8080"
-      - "flame.type=app"
-      - "flame.name=LibreSpeed"
-      - "flame.url=https://${LIBRESPEED_HOSTNAME}"
     volumes:
       - ${DOCKER_DATA_DIR}/librespeed:/database
     profiles:

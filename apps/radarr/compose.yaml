@@ -19,9 +19,6 @@ services:
       - "traefik.http.routers.radarr.tls.certresolver=letsencrypt"
       - "traefik.http.routers.radarr.middlewares=authelia@docker"
       - "traefik.http.services.radarr.loadbalancer.server.port=7878"
-      - "flame.type=app"
-      - "flame.name=Radarr"
-      - "flame.url=https://${RADARR_HOSTNAME}"
     depends_on:
       - rclone
     healthcheck:
@@ -56,9 +53,6 @@ services:
       - "traefik.http.routers.radarr4k.tls.certresolver=letsencrypt"
       - "traefik.http.routers.radarr4k.middlewares=authelia@docker"
       - "traefik.http.services.radarr4k.loadbalancer.server.port=7878"
-      - "flame.type=app"
-      - "flame.name=Radarr4k"
-      - "flame.url=https://${RADARR4K_HOSTNAME}"
     depends_on:
       - rclone
     healthcheck:
@@ -92,9 +86,6 @@ services:
       - "traefik.http.routers.radarranime.tls.certresolver=letsencrypt"
       - "traefik.http.routers.radarranime.middlewares=authelia@docker"
       - "traefik.http.services.radarranime.loadbalancer.server.port=7878"
-      - "flame.type=app"
-      - "flame.name=RadarrAnime"
-      - "flame.url=https://${RADARRANIME_HOSTNAME}"
     depends_on:
       - rclone
     healthcheck:

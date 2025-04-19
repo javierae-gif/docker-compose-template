@@ -18,9 +18,6 @@ services:
       - "traefik.http.routers.omg-tv-stremio-addon.tls.certresolver=letsencrypt"
       - "traefik.http.routers.omg-tv-stremio-addon.middlewares=authelia@docker"
       - "traefik.http.services.omg-tv-stremio-addon.loadbalancer.server.port=7860"
-      - "flame.type=app"
-      - "flame.name=OMG TV Stremio Addon"
-      - "flame.url=https://${OMG_TV_STREMIO_ADDON_HOSTNAME}"
     profiles: 
       - omg-tv-stremio-addon
       - stremio

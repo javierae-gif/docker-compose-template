@@ -21,9 +21,6 @@ services:
       - "traefik.http.routers.tmdb.tls.certresolver=letsencrypt"
       - "traefik.http.routers.tmdb.middlewares=authelia@docker"
       - "traefik.http.services.tmdb.loadbalancer.server.port=3232"
-      - "flame.type=app"
-      - "flame.name=TMDB Addon"
-      - "flame.url=https://${TMDB_ADDON_HOSTNAME?}"
     depends_on:
       tmdb-addon_mongo:
         condition: service_healthy

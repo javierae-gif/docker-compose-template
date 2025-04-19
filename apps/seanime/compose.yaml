@@ -16,9 +16,6 @@ services:
       - "traefik.http.routers.seanime.entrypoints=websecure"
       - "traefik.http.routers.seanime.tls.certresolver=letsencrypt"
       - "traefik.http.routers.seanime.middlewares=authelia@docker"
-      - "flame.type=app"
-      - "flame.name=Seanime"
-      - "flame.url=https://${SEANIME_HOSTNAME}"
     healthcheck:
       test: wget -qO- http://localhost:43211/api/v1/status
       interval: 5m

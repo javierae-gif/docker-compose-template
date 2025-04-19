@@ -9,13 +9,10 @@ services:
       - .env
     labels:
       - traefik.enable=true
-      - traefik.http.routers.comet.rule=Host(`${COMET_HOSTNAME}`)
+      - traefik.http.routers.comet.rule=Host(`${COMET_HOSTNAME?}`)
       - traefik.http.routers.comet.entrypoints=websecure
       - traefik.http.routers.comet.tls.certresolver=letsencrypt
       - traefik.http.routers.comet.middlewares=authelia@docker
-      - flame.type=app
-      - flame.name=Comet
-      - flame.url=https://${COMET_HOSTNAME}
     volumes:
       - ${DOCKER_DATA_DIR}/comet:/app/data
     healthcheck:

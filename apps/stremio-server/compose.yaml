@@ -10,9 +10,6 @@ services:
       - "traefik.http.routers.stremio-server.rule=Host(`${STREMIO_SERVER_HOSTNAME?}`)"
       - "traefik.http.routers.stremio-server.entrypoints=websecure"
       - "traefik.http.routers.stremio-server.tls.certresolver=letsencrypt"
-      - "flame.type=app"
-      - "flame.name=Stremio Server"
-      - "flame.url=https://${STREMIO_SERVER_HOSTNAME}"
     profiles:
       - stremio-server
       - stremio
