@@ -1,5 +1,5 @@
 services:
-torbox-manager:
+  torbox-manager:
     image: charleeislegend/torbox-manager:latest
     container_name: torbox-manager
     expose:
