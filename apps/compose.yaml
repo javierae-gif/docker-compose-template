@@ -14,6 +14,7 @@ include:
   - dockge/compose.yaml
   - dozzle/compose.yaml
   - easynews-plus/compose.yaml
+  - easynews-plus-plus/compose.yaml
   - gluetun/compose.yaml
   - honey/compose.yaml
   - jackett/compose.yaml
