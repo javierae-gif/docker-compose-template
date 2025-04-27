@@ -1,7 +1,5 @@
 include:
   - authelia/compose.yaml
-  - radarr/compose.yaml
-  - sonarr/compose.yaml
   - addon-manager/compose.yaml
   - aiostreams/compose.yaml
   - aiostremio/compose.yaml
@@ -34,10 +32,12 @@ include:
   - plex-trakt-sync/compose.yaml
   - portainer/compose.yaml
   - prowlarr/compose.yaml
+  - radarr/compose.yaml
   - realdebrid-account-monitor/compose.yaml
   - recyclarr/compose.yaml
   - seanime/compose.yaml
   - searxng/compose.yaml
+  - sonarr/compose.yaml
   - speedtest-tracker/compose.yaml
   - streamystats/compose.yaml
   - stremio-catalog-providers/compose.yaml
