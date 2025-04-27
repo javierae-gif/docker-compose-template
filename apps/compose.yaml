@@ -3,6 +3,7 @@ include:
   - addon-manager/compose.yaml
   - aiostreams/compose.yaml
   - aiostremio/compose.yaml
+  - anime-kitsu/compose.yaml
   - autosync/compose.yaml
   - bazarr/compose.yaml
   - beszel/compose.yaml
