@@ -1,13 +1,16 @@
 services:
   jackettio:
-    image: arvida42/jackettio:latest
+    image: ghcr.io/telkaoss/jackettio:latest
     container_name: jackettio
     restart: unless-stopped
     user: $PUID:$PGID
     expose:
       - 4000
-    env_file:
-      - .env
+    environment:
+      - JACKETT_URL=${JACKETT_URL?}
+      - JACKETT_API_KEY=${JACKETT_API_KEY?}
+      - TMDB_ACCESS_TOKEN=${TMDB_ACCESS_TOKEN?}
+      - DATA_FOLDER=/data
     volumes:
       - ${DOCKER_DATA_DIR}/jackettio:/data
     labels:
