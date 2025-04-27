@@ -58,6 +58,7 @@ include:
   - zilean/compose.yaml
   - zipline/compose.yaml
   - zurg/compose.yaml
+  - sshbot/compose.yaml
 
 networks:
   default:
