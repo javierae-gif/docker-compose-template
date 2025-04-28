@@ -1,0 +1,16 @@
+services:
+  sshbot:
+    image: nhyyeb/sshbot:latest
+    container_name: sshbot
+    restart: unless-stopped
+    environment:
+      - DISCORD_TOKEN=${SSHBOT_DISCORD_TOKEN}
+      - SSH_HOST=${SSHBOT_SSH_HOST}
+      - SSH_PORT=${SSHBOT_SSH_PORT}
+      - SSH_USERNAME=${SSHBOT_SSH_USERNAME}
+      - SSH_PASSWORD=${SSHBOT_SSH_PASSWORD}
+      - TZ=${TZ:-UTC}
+    profiles:
+      - sshbot
+      - all
+    
