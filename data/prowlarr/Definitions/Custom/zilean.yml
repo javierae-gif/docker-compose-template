@@ -9,8 +9,8 @@ testlinktorrent: false
 requestDelay: 2
 links:
   # Torznab Endpoint is used for better performance
-  - http://zilean:8181/torznab
-  - https://zilean.elfhosted.com/torznab
+  - http://zilean:8181
+  - https://zilean.elfhosted.com
 
 caps:
   categories:
