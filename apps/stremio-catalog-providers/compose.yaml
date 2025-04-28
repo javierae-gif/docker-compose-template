@@ -53,10 +53,10 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - ${DOCKER_DATA_DIR}/stremio-catalog-providers/db:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    expose:
+      - 5432
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres_user -d stremio_catalog_db"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d stremio_catalog_db"]
       interval: 30s
       timeout: 10s
       retries: 5
