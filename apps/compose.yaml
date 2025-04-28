@@ -41,6 +41,7 @@ include:
   - searxng/compose.yaml
   - sonarr/compose.yaml
   - speedtest-tracker/compose.yaml
+  - sshbot/compose.yaml
   - streamystats/compose.yaml
   - stremio-catalog-providers/compose.yaml
   - stremio-jackett/compose.yaml
@@ -60,7 +61,6 @@ include:
   - zilean/compose.yaml
   - zipline/compose.yaml
   - zurg/compose.yaml
-  - sshbot/compose.yaml
 
 networks:
   default:

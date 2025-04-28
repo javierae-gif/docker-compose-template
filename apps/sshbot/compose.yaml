@@ -3,13 +3,16 @@ services:
     image: nhyyeb/sshbot:latest
     container_name: sshbot
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
-      - DISCORD_TOKEN=${SSHBOT_DISCORD_TOKEN}
-      - SSH_HOST=${SSHBOT_SSH_HOST}
-      - SSH_PORT=${SSHBOT_SSH_PORT}
-      - SSH_USERNAME=${SSHBOT_SSH_USERNAME}
-      - SSH_PASSWORD=${SSHBOT_SSH_PASSWORD}
-      - TZ=${TZ:-UTC}
+      TZ: ${TZ:-UTC}
+      # SSH_PRIVATE_KEY: |
+      #   -----BEGIN OPENSSH PRIVATE KEY-----
+      #   your_key_line_1
+      #   your_key_line_2
+      #   your_key_line_3
+      #   -----END OPENSSH PRIVATE KEY-----
     profiles:
       - sshbot
       - all
