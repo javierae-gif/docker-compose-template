@@ -10,7 +10,7 @@ services:
     expose:
       - 9696
     volumes:
-      - ${DOCKER_DATA_DIR}/prowlarr/config:/config
+      - ${DOCKER_DATA_DIR}/prowlarr:/config
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
