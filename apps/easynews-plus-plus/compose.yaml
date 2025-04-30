@@ -17,3 +17,6 @@ services:
       - "traefik.http.routers.easynews-plus-plus.middlewares=authelia@docker"
     volumes:
       - ${DOCKER_DATA_DIR}/easynews-plus-plus/custom-titles.json:/app/custom-titles.json
+    profiles:
+      - all
+      - easynews-plus-plus
