@@ -51,6 +51,7 @@ include:
   - tautulli/compose.yaml
   - tmdb-addon/compose.yaml
   - torbox-manager/compose.yaml
+  - torbox-media-center/compose.yaml
   - traefik/compose.yaml
   - tweakio/compose.yaml
   - uptime-kuma/compose.yaml
