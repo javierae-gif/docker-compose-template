@@ -12,7 +12,6 @@ services:
       - STREMTHRU_STORE_AUTH=*:realdebrid:abc...xyz             # Add apikey
       - STREMTHRU_STORE_TUNNEL=realdebrid:api                   # Only send RD API via tunnel, not all access (e.g playback)
       - STREMTHRU_STORE_CONTENT_PROXY=*:true,easydebrid:false,premiumize:false
-      - STREMTHRU_PEER_URI=https://stremthru.13377001.xyz
       - STREMTHRU_DATABASE_URI=sqlite://./data/stremthru.db
       - STREMTHRU_REDIS_URI=redis://stremthru_redis:6379
     depends_on:
