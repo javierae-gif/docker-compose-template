@@ -9,11 +9,6 @@ services:
       - TORBOX_API_KEY=${TORBOX_API_KEY}
       - MOUNT_METHOD=${TORBOX_MOUNT_METHOD}
       - MOUNT_PATH=/torbox
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.torboxmedia.rule=Host(`${TORBOX_MEDIA_CENTER_HOSTNAME?}`)"
-      - "traefik.http.routers.torboxmedia.entrypoints=websecure"
-      - "traefik.http.routers.torboxmedia.tls.certresolver=letsencrypt"
     volumes:
       - ${TORBOX_MOUNT_PATH}:/torbox
     profiles:
