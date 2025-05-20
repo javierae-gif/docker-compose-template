@@ -37,7 +37,7 @@ services:
       - all
     
   streamystats_postgres:
-    image: postgres:16
+    image: pgvector/pgvector:pg16
     container_name: streamystats_postgres
     restart: unless-stopped
     expose:
