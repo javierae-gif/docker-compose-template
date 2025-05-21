@@ -60,6 +60,7 @@ include:
   - warp/compose.yaml
   - watchtower/compose.yaml
   - wests-scripts/compose.yaml
+  - yamtrack/compose.yaml
   - zilean/compose.yaml
   - zipline/compose.yaml
   - zurg/compose.yaml
