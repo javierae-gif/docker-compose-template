@@ -17,6 +17,7 @@ include:
   - easynews-plus-plus/compose.yaml
   - gluetun/compose.yaml
   - honey/compose.yaml
+  - huntarr/compose.yaml
   - jackett/compose.yaml
   - jackettio/compose.yaml
   - jellyfin/compose.yaml
