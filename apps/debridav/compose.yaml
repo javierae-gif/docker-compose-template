@@ -13,7 +13,6 @@ services:
       - PGID=${PGID}
       - UMASK=002
       - TZ=${TZ}
-      
       - DEBRIDAV_ROOTPATH=${DEBRIDAV_ROOT_PATH}
       - DEBRIDAV_DOWNLOADPATH=${DEBRIDAV_DOWNLOAD_PATH}
       - DEBRIDAV_MOUNTPATH=${DEBRIDAV_MOUNT_PATH_CONTAINERS}
@@ -52,9 +51,9 @@ services:
       postgres-debridav:
         condition: service_healthy
 
-  rclone:
+  debridav_rclone:
     image: rclone/rclone:latest
-    container_name: rclone-debridav
+    container_name: debridav_rclone
     restart: unless-stopped
     environment:
       - TZ=${TZ}
@@ -84,9 +83,9 @@ services:
       --dir-cache-time=1s
       -vv
 
-  postgres-debridav:
+  debridav_postgres:
     image: postgres:latest
-    container_name: postgres-debridav
+    container_name: debridav_postgres
     restart: unless-stopped
     environment:
       - POSTGRES_USER=debridav
