@@ -12,6 +12,7 @@ include:
   - cloudflare-ddns/compose.yaml
   - comet/compose.yaml
   - dash/compose.yaml
+  - debridav/compose.yaml
   - decypharr/compose.yaml
   - dockge/compose.yaml
   - dozzle/compose.yaml
