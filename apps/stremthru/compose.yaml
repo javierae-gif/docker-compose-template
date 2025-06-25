@@ -7,9 +7,6 @@ services:
       - 8080
     env_file:
       - .env
-    depends_on:
-      stremthru_redis:
-        condition: service_healthy
     volumes:
       - ${DOCKER_DATA_DIR}/stremthru:/app/data
     labels:
@@ -23,21 +20,3 @@ services:
       - stremthru
       - stremio
       - all
-  
-  stremthru_redis:
-    image: redis:latest
-    container_name: stremthru_redis
-    restart: unless-stopped
-    volumes:
-      - ${DOCKER_DATA_DIR}/stremthru/cache:/data
-    command: redis-server --appendonly yes --save 60 1
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    profiles:
-      - stremthru
-      - stremio
-      - all
-
