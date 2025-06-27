@@ -48,8 +48,11 @@ services:
       start_period: 2s
       retries: 1000
     depends_on:
-      postgres-debridav:
+      debridav_postgres:
         condition: service_healthy
+    profiles:
+      - debridav
+      - all
 
   debridav_rclone:
     image: rclone/rclone:latest
@@ -82,6 +85,9 @@ services:
       --low-level-retries=1
       --dir-cache-time=1s
       -vv
+    profiles:
+      - debridav
+      - all
 
   debridav_postgres:
     image: postgres:latest
@@ -99,3 +105,6 @@ services:
       test: [ "CMD-SHELL", "pg_isready -d debridav" ]
       interval: 5s
       retries: 10
+    profiles:
+      - debridav
+      - all
