@@ -40,6 +40,7 @@ include:
   - apps/portainer/compose.yaml
   - apps/prowlarr/compose.yaml
   - apps/radarr/compose.yaml
+  - apps/redlib/compose.yaml
   - apps/realdebrid-account-monitor/compose.yaml
   - apps/recyclarr/compose.yaml
   - apps/seanime/compose.yaml

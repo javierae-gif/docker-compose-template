@@ -51,6 +51,7 @@ services:
         ${RADARR_HOSTNAME},
         ${RADARR4K_HOSTNAME},
         ${RADARRANIME_HOSTNAME},
+        ${REDLIB_HOSTNAME},
         ${SEANIME_HOSTNAME},
         ${SEARXNG_HOSTNAME},
         ${SONARR_HOSTNAME},
