@@ -12,11 +12,8 @@ services:
       - UMASK=002
     volumes:
       - /mnt:/mnt:rslave
+      - ${DOCKER_DATA_DIR}/decypharr:/app
       - ./config.json:/app/config.json
-      - ${DOCKER_DATA_DIR}/decypharr/repair.json:/app/repair.json
-      - ${DOCKER_DATA_DIR}/decypharr/torrents.json:/app/torrents.json
-      - ${DOCKER_DATA_DIR}/decypharr/logs:/app/logs
-      - ${DOCKER_DATA_DIR}/decypharr/cache:/app/cache
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.decypharr.rule=Host(`${DECYPHARR_HOSTNAME?}`)"
