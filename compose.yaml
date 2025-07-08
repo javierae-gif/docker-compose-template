@@ -2,6 +2,7 @@ include:
   - apps/authelia/compose.yaml
   - apps/addon-manager/compose.yaml
   - apps/arcane/compose.yaml
+  - apps/aiolists/compose.yaml
   - apps/aiostreams/compose.yaml
   - apps/aiostremio/compose.yaml
   - apps/anime-kitsu/compose.yaml
