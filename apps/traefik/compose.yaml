@@ -9,13 +9,14 @@ services:
       - 443:443
       - 80:80
     command:
+      - "--ping"
       - '--api=true'
       - '--api.dashboard=true'
       - '--api.insecure=false'
       - '--global.sendAnonymousUsage=false'
       - '--global.checkNewVersion=false'
       - '--log=true'
-      - '--log.level=DEBUG'
+      - "--log.level=INFO"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--providers.docker.network=${DOCKER_NETWORK?}"
@@ -41,8 +42,7 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
       - "--certificatesresolvers.letsencrypt.acme.email=${LETSENCRYPT_EMAIL?}"
       - "--certificatesresolvers.letsencrypt.acme.storage=/config/acme.json"
-      - "--log.level=INFO"
-      - "--ping"
+      - "--certificatesresolvers.letsencrypt.acme.caserver=${LE_CA_SERVER?}"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "${DOCKER_DATA_DIR}/traefik:/config"
