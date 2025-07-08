@@ -31,6 +31,7 @@ include:
   - apps/mediaflow-proxy/compose.yaml
   - apps/mediafusion/compose.yaml
   - apps/minecraft/compose.yaml
+  - apps/nitter/compose.yaml
   - apps/nzbhydra2/compose.yaml
   - apps/omg-tv-addon/compose.yaml
   - apps/overseerr/compose.yaml
