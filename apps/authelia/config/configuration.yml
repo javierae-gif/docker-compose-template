@@ -724,14 +724,14 @@ access_control:
     ## Apply page specific protection to stremio addons after escaping dots and replacing commans with pipes in the 
     ## comma separated list of hostnames defined in the environment variable TEMPLATE_STREMIO_ADDON_HOSTNAMES.
     ## This ensures that addons are still usable while protecting important pages.
-    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_HOSTNAMES" | replace "," "|" | replace "." "\\." }})$'
+    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_HOSTNAMES" | replace "," "|" | replace "." "\\." | replace " " ""}})$'
       resources:
         - '.*?/configure($|/.*$|\?.*$)'  # rule for prtecting any resource that has the component somewhere in the path
         - '.*?/(stremio|sidekick|admin|watch)($|\?.*$)' # rule for protecting any resource that ends with the component.
         - '^/$' # rule for protecting the root path
       policy: 'two_factor'
     ## ensure other resources for stremio addons bypass authentication
-    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_HOSTNAMES" | replace "," "|" | replace "." "\\." }})$'
+    - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_HOSTNAMES" | replace "," "|" | replace "." "\\." | replace " " "" }})$'
       policy: 'bypass'
 
     - domain: '*.{{ env "TEMPLATE_DOMAIN" }}'
