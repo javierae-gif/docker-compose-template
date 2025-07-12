@@ -21,25 +21,16 @@ services:
 
         RUN pnpm build
 
-        # Entrypoint script: create init migration if none exist, run migrations, start app
-        CMD sh -c '\
-          if [ ! -f /app/data/migrated ]; then \
-            echo "Running init migration..."; \
-            pnpm --filter @stremio-addon/database prisma migrate dev --name init; \
-            touch /app/data/migrated; \
-          else \
-            echo "Migration already performed, skipping..."; \
-          fi && \
-          pnpm start \
-        '
+        ENV DATABASE_URL=${DATABASE_URL}
 
+        RUN pnpm run --filter @stremio-addon/database prisma migrate dev --name init --create-only
+
+        # RUN MIGRATIONS AND START
+        ENTRYPOINT  ["sh", "-c", "pnpm run --filter @stremio-addon/database prisma migrate deploy && pnpm start"]
     container_name: stremio-letterboxd
     restart: unless-stopped
     env_file:
       - .env
-    environment:
-      DATABASE_PROVIDER: "sqlite"
-      DATABASE_URL: "file:/app/data/stremio-letterboxd.db"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.stremio-letterboxd.rule=Host(`${STREMIO_LETTERBOXD_HOSTNAME}`)"
