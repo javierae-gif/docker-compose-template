@@ -7,7 +7,7 @@ services:
         FROM node:22.14.0
 
         ENV NODE_ENV=production
-        
+
         WORKDIR /app
 
         COPY . .
@@ -23,13 +23,16 @@ services:
 
         # Entrypoint script: create init migration if none exist, run migrations, start app
         CMD sh -c '\
-          if [ ! -d "packages/database/prisma/migrations" ] || [ -z "$(ls -A packages/database/prisma/migrations)" ]; then \
-            echo "No migrations found, creating init migration..."; \
-            pnpm --filter @stremio-addon/database prisma migrate dev --name init --create-only; \
+          if [ ! -f /app/data/migrated ]; then \
+            echo "Running init migration..."; \
+            pnpm --filter @stremio-addon/database prisma migrate dev --name init; \
+            touch /app/data/migrated; \
+          else \
+            echo "Migration already performed, skipping..."; \
           fi && \
-          pnpm --filter @stremio-addon/database prisma migrate deploy && \
           pnpm start \
         '
+
     container_name: stremio-letterboxd
     restart: unless-stopped
     env_file:
