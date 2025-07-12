@@ -13,6 +13,7 @@ services:
       PROXIED: false
       DOMAINS: >
         ${ADDON_MANAGER_HOSTNAME},
+        ${AI_SEARCH_HOSTNAME},
         ${AIOLISTS_HOSTNAME},
         ${AIOSTREAMS_HOSTNAME},
         ${AIOSTREMIO_HOSTNAME},
