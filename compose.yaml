@@ -53,6 +53,7 @@ include:
   - apps/stremio-account-bootstrapper/compose.yaml
   - apps/stremio-catalog-providers/compose.yaml
   - apps/stremio-jackett/compose.yaml
+  - apps/stremio-letterboxd/compose.yaml
   - apps/stremio-server/compose.yaml
   - apps/stremio-trakt-addon/compose.yaml
   - apps/stremthru/compose.yaml
