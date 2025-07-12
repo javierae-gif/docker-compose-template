@@ -19,6 +19,7 @@ services:
       # Do NOT include non-stremio addon domains here. It would mean that those services would not be fully protected, or in most cases not protected at all.
       TEMPLATE_STREMIO_ADDON_HOSTNAMES: >-
         ${AI_SEARCH_HOSTNAME},
+        ${AIOLISTS_HOSTNAME},
         ${AIOSTREAMS_HOSTNAME},
         ${AIOSTREMIO_HOSTNAME},
         ${ANIME_KITSU_HOSTNAME},
