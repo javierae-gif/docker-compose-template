@@ -29,6 +29,7 @@ include:
   - apps/jellyseer/compose.yaml
   - apps/kometa/compose.yaml
   - apps/librespeed/compose.yaml
+  - apps/mealie/compose.yaml
   - apps/mediaflow-proxy/compose.yaml
   - apps/mediafusion/compose.yaml
   - apps/minecraft/compose.yaml
