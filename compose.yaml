@@ -57,6 +57,7 @@ include:
   - apps/sshbot/compose.yaml
   - apps/streamystats/compose.yaml
   - apps/stremio-account-bootstrapper/compose.yaml
+  - apps/stremio-ai-search/compose.yaml
   - apps/stremio-catalog-providers/compose.yaml
   - apps/stremio-jackett/compose.yaml
   - apps/stremio-letterboxd/compose.yaml
