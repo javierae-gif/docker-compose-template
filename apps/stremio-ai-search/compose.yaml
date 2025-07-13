@@ -14,7 +14,7 @@ services:
       - 7000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.stremio-ai-search.rule=Host(`${AI_SEARCH_HOSTNAME}`)"
+      - "traefik.http.routers.stremio-ai-search.rule=Host(`${STREMIO_AI_SEARCH_HOSTNAME}`)"
       - "traefik.http.routers.stremio-ai-search.entrypoints=websecure"
       - "traefik.http.routers.stremio-ai-search.tls.certresolver=letsencrypt"
       - "traefik.http.routers.stremio-ai-search.middlewares=authelia@docker"
