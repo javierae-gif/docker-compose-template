@@ -20,6 +20,7 @@ services:
       - "traefik.http.routers.mealie.rule=Host(`${MEALIE_HOSTNAME?}`)"
       - "traefik.http.routers.mealie.entrypoints=websecure"
       - "traefik.http.routers.mealie.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.mealie.middlewares=authelia@docker"
       - "traefik.http.services.mealie.loadbalancer.server.port=9000"
     volumes:
       - ${DOCKER_DATA_DIR}/mealie:/app/data
