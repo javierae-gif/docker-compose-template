@@ -39,6 +39,7 @@ services:
         ${JACKETTIO_HOSTNAME},
         ${JELLYFIN_HOSTNAME},
         ${JELLYSEER_HOSTNAME},
+        ${KARAKEEP_HOSTNAME},
         ${LIBRESPEED_HOSTNAME},
         ${MEALIE_HOSTNAME},
         ${MEDIAFLOW_PROXY_HOSTNAME},
