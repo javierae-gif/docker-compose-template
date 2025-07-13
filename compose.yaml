@@ -1,11 +1,12 @@
 include:
-  - apps/authelia/compose.yaml
   - apps/addon-manager/compose.yaml
-  - apps/arcane/compose.yaml
   - apps/aiolists/compose.yaml
   - apps/aiostreams/compose.yaml
   - apps/aiostremio/compose.yaml
   - apps/anime-kitsu/compose.yaml
+  - apps/apprise/compose.yaml
+  - apps/arcane/compose.yaml
+  - apps/authelia/compose.yaml
   - apps/autosync/compose.yaml
   - apps/bazarr/compose.yaml
   - apps/beszel/compose.yaml
@@ -32,6 +33,7 @@ include:
   - apps/mediafusion/compose.yaml
   - apps/minecraft/compose.yaml
   - apps/nitter/compose.yaml
+  - apps/ntfy/compose.yaml
   - apps/nzbhydra2/compose.yaml
   - apps/omg-tv-addon/compose.yaml
   - apps/overseerr/compose.yaml
