@@ -45,6 +45,7 @@ include:
   - apps/plex-trakt-sync/compose.yaml
   - apps/portainer/compose.yaml
   - apps/prowlarr/compose.yaml
+  - apps/quetre/compose.yaml
   - apps/radarr/compose.yaml
   - apps/redlib/compose.yaml
   - apps/realdebrid-account-monitor/compose.yaml

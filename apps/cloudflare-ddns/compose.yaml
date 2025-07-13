@@ -55,6 +55,7 @@ services:
         ${PLEX_HOSTNAME},
         ${PORTAINER_HOSTNAME},
         ${PROWLARR_HOSTNAME},
+        ${QUETRE_HOSTNAME},
         ${RADARR_HOSTNAME},
         ${RADARR4K_HOSTNAME},
         ${RADARRANIME_HOSTNAME},
