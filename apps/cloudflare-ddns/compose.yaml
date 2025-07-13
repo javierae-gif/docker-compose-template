@@ -12,6 +12,7 @@ services:
       CLOUDFLARE_API_TOKEN: "${CLOUDFLARE_API_TOKEN}"
       PROXIED: false
       DOMAINS: >
+        ${ACTUAL_BUDGET_HOSTNAME},
         ${ADDON_MANAGER_HOSTNAME},
         ${AI_SEARCH_HOSTNAME},
         ${AIOLISTS_HOSTNAME},
