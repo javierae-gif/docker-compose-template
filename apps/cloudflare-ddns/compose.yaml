@@ -36,6 +36,7 @@ services:
         ${HONEY_HOSTNAME},
         ${HUNTARR_HOSTNAME},
         ${IMMICH_HOSTNAME},
+        ${IT_TOOLS_HOSTNAME},
         ${JACKETT_HOSTNAME},
         ${JACKETTIO_HOSTNAME},
         ${JELLYFIN_HOSTNAME},
