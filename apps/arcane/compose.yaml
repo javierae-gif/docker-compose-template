@@ -5,6 +5,11 @@ services:
     restart: unless-stopped
     expose:
       - 3000
+    environment:
+      - APP_ENV=production
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - PUBLIC_SESSION_SECRET=${PUBLIC_SESSION_SECRET?}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.arcane.rule=Host(`${ARCANE_HOSTNAME?}`)"
@@ -15,12 +20,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${DOCKER_DATA_DIR}/arcane:/app/data
-    environment:
-      - APP_ENV=production
-      - PUID=${PUID}
-      - PGID=${PGID}
-      # Session secret - generate with: openssl rand -base64 32
-      - PUBLIC_SESSION_SECRET=
     profiles:
       - arcane
       - all 
