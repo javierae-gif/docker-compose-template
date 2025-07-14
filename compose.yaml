@@ -1,6 +1,7 @@
 include:
   - apps/actual-budget/compose.yaml
   - apps/addon-manager/compose.yaml
+  - apps/adguard/compose.yaml
   - apps/aiolists/compose.yaml
   - apps/aiostreams/compose.yaml
   - apps/aiostremio/compose.yaml
