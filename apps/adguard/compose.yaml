@@ -37,3 +37,6 @@ services:
       - "traefik.tcp.routers.adguard-tls.tls.certresolver=letsencrypt"
       - "traefik.tcp.routers.adguard-tls.service=adguard-tls"
       - "traefik.tcp.services.adguard-tls.loadbalancer.server.port=53"
+    profiles:
+      - adguard
+      - all
