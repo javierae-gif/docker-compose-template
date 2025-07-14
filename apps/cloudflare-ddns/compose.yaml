@@ -35,6 +35,7 @@ services:
         ${EASYNEWS_PLUS_PLUS_HOSTNAME},
         ${HONEY_HOSTNAME},
         ${HUNTARR_HOSTNAME},
+        ${IMMICH_HOSTNAME},
         ${JACKETT_HOSTNAME},
         ${JACKETTIO_HOSTNAME},
         ${JELLYFIN_HOSTNAME},

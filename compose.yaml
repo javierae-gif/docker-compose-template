@@ -24,6 +24,7 @@ include:
   - apps/gluetun/compose.yaml
   - apps/honey/compose.yaml
   - apps/huntarr/compose.yaml
+  - apps/immich/compose.yaml
   - apps/jackett/compose.yaml
   - apps/jackettio/compose.yaml
   - apps/jellyfin/compose.yaml
