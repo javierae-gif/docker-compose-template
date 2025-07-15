@@ -16,6 +16,7 @@ include:
   - apps/byparr/compose.yaml
   - apps/cloudflare-ddns/compose.yaml
   - apps/comet/compose.yaml
+  - apps/crowdsec/compose.yaml
   - apps/dash/compose.yaml
   - apps/decypharr/compose.yaml
   - apps/dockge/compose.yaml
