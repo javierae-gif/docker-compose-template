@@ -35,6 +35,7 @@ services:
         ${STREMIO_CATALOG_PROVIDERS_HOSTNAME},
         ${STREMIO_TRAKT_ADDON_HOSTNAME},
         ${TMDB_ADDON_HOSTNAME},
+        ${TMDB_COLLECTIONS_HOSTNAME},
         ${WEBSTREAMR_HOSTNAME}
     labels:
       - "traefik.enable=true"
