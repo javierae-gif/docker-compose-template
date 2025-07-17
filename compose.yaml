@@ -48,6 +48,7 @@ include:
   - apps/plausible/compose.yaml
   - apps/plex/compose.yaml
   - apps/plex-trakt-sync/compose.yaml
+  - apps/plexio/compose.yaml
   - apps/portainer/compose.yaml
   - apps/prowlarr/compose.yaml
   - apps/quetre/compose.yaml

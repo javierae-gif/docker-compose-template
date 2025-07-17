@@ -56,6 +56,7 @@ services:
         ${OVERSEERR_HOSTNAME},
         ${PLAUSIBLE_HOSTNAME},
         ${PLEX_HOSTNAME},
+        ${PLEXIO_HOSTNAME},
         ${PORTAINER_HOSTNAME},
         ${PROWLARR_HOSTNAME},
         ${QUETRE_HOSTNAME},
