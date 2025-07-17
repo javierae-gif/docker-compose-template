@@ -81,6 +81,7 @@ include:
   - apps/vaultwarden/compose.yaml
   - apps/warp/compose.yaml
   - apps/watchtower/compose.yaml
+  - apps/webstreamr/compose.yaml
   - apps/wests-scripts/compose.yaml
   - apps/yamtrack/compose.yaml
   - apps/zilean/compose.yaml
