@@ -28,9 +28,13 @@ services:
       # - --keys=http_server
       # - --keys=queue_server
       # - --keys=dht_crawler
+    profiles:
+      - bitmagnet
+      - all
 
   bitmagnet_vpn:
     container_name: bitmagnet_vpn
+    hostname: bitmagnet
     image: qmcgaw/gluetun
     restart: unless-stopped
     cap_add:
@@ -67,10 +71,8 @@ services:
       bitmagnet: 
         ipv4_address: 192.168.55.10
       default:
-
-    hostname: bitmagnet
     profiles:
-      - gluetun
+      - bitmagnet
       - all
 
   bitmagnet_postgres:
@@ -92,6 +94,9 @@ services:
       test: ["CMD-SHELL", "pg_isready", "-U", "bitmagnet", "-d", "bitmagnet"]
       interval: 10s
       start_period: 20s
+    profiles:
+      - bitmagnet
+      - all
 
 
 networks:
