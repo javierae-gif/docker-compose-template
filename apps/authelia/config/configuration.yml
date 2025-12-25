@@ -717,7 +717,7 @@ authentication_backend:
 access_control:
   ## Default policy can either be 'bypass', 'one_factor', 'two_factor' or 'deny'. It is the policy applied to any
   ## resource if there is no policy to be applied to the user.
-  default_policy: 'deny'
+  default_policy: 'one_factor'
 
   rules:
 
@@ -729,7 +729,7 @@ access_control:
         - '.*?/configure($|/.*$|\?.*$)'  # rule for prtecting any resource that has the component somewhere in the path
         - '.*?/(stremio|sidekick|admin|watch)($|\?.*$)' # rule for protecting any resource that ends with the component.
         - '^/$' # rule for protecting the root path
-      policy: 'two_factor'
+      policy: 'one_factor'
     ## ensure other resources for stremio addons bypass authentication
     - domain_regex: '^({{ env "TEMPLATE_STREMIO_ADDON_HOSTNAMES" | replace "," "|" | replace "." "\\." | replace " " "" }})$'
       policy: 'bypass'
@@ -782,11 +782,11 @@ access_control:
       policy: 'bypass'
 
     - domain: '*.{{ env "TEMPLATE_DOMAIN" }}'
-      policy: 'two_factor'
+      policy: 'one_factor'
 
     ## root domain
     - domain: '{{ env "TEMPLATE_DOMAIN" }}'
-      policy: 'two_factor'
+      policy: 'one_factor'
 
     ## Domain Regex examples. Generally we recommend just using a standard domain.
     # - domain_regex: '^(?P<User>\w+)\.example\.com$'
