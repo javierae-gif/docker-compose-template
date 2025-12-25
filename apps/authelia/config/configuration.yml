@@ -180,7 +180,7 @@ log:
 ## Parameters used for TOTP generation.
 totp:
   ## Disable TOTP.
-  disable: true
+  disable: false
 
   ## The issuer name displayed in the Authenticator application of your choice.
   issuer: '{{ env "TEMPLATE_DOMAIN" }}'
