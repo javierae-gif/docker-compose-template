@@ -8,14 +8,14 @@
 
 users:
   ## change this to the username you want to use
-  user1:  
+  Kai3N:  
     disabled: false
     ## change this to the display name you want to use
-    displayname: "User"  
+    displayname: "Kai3N"  
     ## Generate the argon 2 password hash using the following command
     ## sudo docker run --rm authelia/authelia:latest authelia crypto hash generate argon2 --password 'yourpassword'
     ## (currently the password is 'password')
-    password: "$argon2id$v=19$m=65536,t=3,p=4$9WCjag9NY9e/8OYGnPV1rg$OtXfECdXxgY+nI0ELWyRlSGKYV0a5QeW+r6mL1nXmoo"  
+    password: "$argon2id$v=19$m=65536,t=3,p=4$KIYLbQnxfE8Rt1Yx3h4SfQ$ZW4Gfc/9zKkq3t0B6O8VKr3ZuJvifFXsvOwE3jMbpCE"  
     email: authelia@authelia.com
     groups:
       - admins

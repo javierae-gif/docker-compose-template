@@ -1,1 +1,7 @@
 ..*data/stremthru/*.db-wal
+
+# Database files and temporary directories
+data/mediafusion/db/
+data/**/.*
+data/**/*.db-*
+data/**/.tmp/
